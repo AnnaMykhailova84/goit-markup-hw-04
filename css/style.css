@@ -96,6 +96,25 @@ body {
 
 .nav-list {
   display: flex;
+} 
+.nav-item {
+  display: flex;
+  position: relative;
+}
+.nav-item::after {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  content: '';
+  width: 0%;
+  height: 4px;
+  border-radius: 2px 2px;
+  background-color: #404bbf;
+  transition: width .2s ease;
+}
+
+.nav-item:active::after{
+  width: 100%;
 }
 
 .nav-item-link {
@@ -275,8 +294,9 @@ body {
   fill: #4d5ae5;
   transition: fill .1s ease;
 }
+
 .member-icon-item:hover .icon {
-  fill: #31D0AA;
+  fill: #404bbf;
 }
 
  .member-icon-list {

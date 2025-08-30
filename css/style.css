@@ -96,12 +96,12 @@ body {
 
 .nav-list {
   display: flex;
-} 
+}
 .nav-item {
   display: flex;
   position: relative;
 }
-.nav-item::after {
+.nav-item.active::after {
   position: absolute;
   bottom: -1px;
   left: 0;
@@ -110,7 +110,7 @@ body {
   height: 4px;
   border-radius: 2px 2px;
   background-color: #404bbf;
-  transition: width .2s ease;
+  transition: width 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-item-link {
@@ -118,14 +118,14 @@ body {
   color: #2e2f42;
   letter-spacing: 0.02em;
   padding: 24px 0;
-  transition: color .2s ease;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .nav-item:not(:last-child),
 .address-item:not(:last-child) {
   margin-right: 40px;
 }
 
-.nav-item:active::after {
+.nav-item.active:hover::after {
   width: 100%;
 }
 
@@ -149,7 +149,7 @@ body {
   font-weight: 400;
   color: inherit;
   letter-spacing: 0.02em;
-  transition: color 0.1s ease;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-address .address-link:hover,
@@ -160,10 +160,10 @@ body {
 
 .banner {
   background-image: linear-gradient(
-    to bottom,
-    rgba(46, 47, 66, 0.7),
-    rgba(46, 47, 66, 0.7)
-  ),
+      to bottom,
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
     url(../images/people-office.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -196,7 +196,7 @@ body {
   border-radius: 4px;
   min-width: 169px;
   height: 56px;
-  transition: background-color 0.1s ease-out;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .banner-btn:hover,
@@ -228,6 +228,24 @@ body {
 .stand-out-item {
   width: calc((100% - 72px) / 4);
 }
+
+.stand-out-pic {
+  display: flex;
+  position: relative;
+  background-color: #f4f4fd;
+  border-radius: 4px;
+  border: 1px solid #8e8f99;
+  width: 100%;
+  height: 112px;
+  margin-bottom: 8px;
+}
+.stand-out-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
 .stand-out-title {
   font-weight: 500;
   font-size: 20px;
@@ -264,14 +282,16 @@ body {
 
 .our-team-item {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
+  cursor: pointer;
   width: calc((100% - 72px) / 4);
   border-radius: 0 0 4px 4px;
   background-color: #ffffff;
   box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
     0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
-  transition: all 0.1s ease-out;
+  /* transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1); */
 }
+
 .member-desc {
   padding: 32px 0;
 }
@@ -289,24 +309,20 @@ body {
   letter-spacing: 0.02em;
 }
 
-.icon {
+.member-icon {
   fill: #4d5ae5;
-  transition: fill .1s ease;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.member-icon-item:hover .icon {
+.member-icon-item:hover .member-icon {
   fill: #404bbf;
 }
 
- .member-icon-list {
-  display: flex ;
+.member-icon-list {
+  display: flex;
   justify-content: space-between;
   margin-top: 8px;
   padding: 0 16px;
-}
-
-.our-team-item {
-  cursor: pointer;
 }
 
 .portfolio {
@@ -332,6 +348,9 @@ body {
 .portfolio-item {
   width: calc((100% - 48px) / 3);
   cursor: pointer;
+  box-shadow: 0 0 0 0 rgba(46, 47, 66, 0.08), 0 0 0 0 rgba(46, 47, 66, 0.16),
+    0 0 0 0 rgba(46, 47, 66, 0.08);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-item:not(:nth-last-child(-n + 3)) {
@@ -387,25 +406,22 @@ body {
   background-color: #4d5ae5;
   padding: 40px 32px;
   transform: translateY(100%);
-  transition: transform .3s ease-in-out;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.portfolio-item-card:hover .overlay,
-.portfolio-item-card:hover .portfolio-item-text{
+.portfolio-item:hover {
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+}
+
+.portfolio-item:hover .overlay,
+.portfolio-item:hover .portfolio-item-text {
   transform: translateY(0);
 }
+
 .portfolio-item-desc {
   border: 1px solid #e7e9fc;
   border-top: none;
   padding: 32px 16px;
-  box-shadow: 0 0 0 0 rgba(46, 47, 66, 0.08),
-              0 0 0 0 rgba(46, 47, 66, 0.16),
-              0 0 0 0 rgba(46, 47, 66, 0.08);
-  transition: box-shadow .2s ease-in;
-}
-.portfolio-item:hover .portfolio-item-desc {
-  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 
-              0 1px 1px 0 rgba(46, 47, 66, 0.16), 
-              0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
 .portfolio-item-name {

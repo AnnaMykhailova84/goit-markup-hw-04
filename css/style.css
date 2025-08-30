@@ -113,27 +113,25 @@ body {
   transition: width .2s ease;
 }
 
-.nav-item:active::after{
-  width: 100%;
-}
-
 .nav-item-link {
   font-weight: 500;
   color: #2e2f42;
   letter-spacing: 0.02em;
   padding: 24px 0;
+  transition: color .2s ease;
 }
 .nav-item:not(:last-child),
 .address-item:not(:last-child) {
   margin-right: 40px;
 }
 
-.nav-item-link:hover,
-.nav-item-link:focus {
-  color: #404bbf;
+.nav-item:active::after {
+  width: 100%;
 }
 
-.header-nav .nav-item-link:active {
+.nav-item-link:hover,
+.nav-item-link:focus,
+.nav-item-link:active {
   color: #404bbf;
 }
 
@@ -151,6 +149,7 @@ body {
   font-weight: 400;
   color: inherit;
   letter-spacing: 0.02em;
+  transition: color 0.1s ease;
 }
 
 .header-address .address-link:hover,
@@ -197,7 +196,7 @@ body {
   border-radius: 4px;
   min-width: 169px;
   height: 56px;
-  transition: all 0.1s ease-out;
+  transition: background-color 0.1s ease-out;
 }
 
 .banner-btn:hover,
@@ -340,90 +339,72 @@ body {
 }
 
 .portfolio-item-card {
+  display: flex;
+  position: relative;
   background-size: cover;
   background-image: url('../images/portfolio1.jpg');
   background-repeat: no-repeat;
-  background-color: #4d5ae5;
+  /* background-color: #4d5ae5; */
   width: 100%;
   height: 300px;
   font-family: inherit;
   font-weight: 400;
   letter-spacing: 0.02em;
-  padding: 40px 32px;
+  overflow: hidden;
 }
 
-.portfolio-item-card.card-1 {
+.portfolio-item.card-1 {
   background-image: url('../images/portfolio1.jpg');
 }
-.portfolio-item-card.card-1:hover {
-  background-image: none;
-}
 
-.portfolio-item-card.card-1:hover .portfolio-item-text.text-1 {
-  color: rgba(244, 244, 253, 1);
-}
 .portfolio-item-card.card-2 {
   background-image: url('../images/portfolio2.jpg');
 }
-.portfolio-item-card.card-2:hover {
-  background-image: none;
-}
-
-.portfolio-item-card.card-2:hover .portfolio-item-text.text-2 {
-  color: rgba(244, 244, 253, 1);
 }
 .portfolio-item-card.card-3 {
   background-image: url('../images/portfolio3.jpg');
 }
-.portfolio-item-card.card-3:hover {
-  background-image: none;
-}
 
-.portfolio-item-card.card-3:hover .portfolio-item-text.text-3 {
-  color: rgba(244, 244, 253, 1);
-}
 .portfolio-item-card.card-4 {
   background-image: url('../images/portfolio4.jpg');
 }
-.portfolio-item-card.card-4:hover {
-  background-image: none;
-}
 
-.portfolio-item-card.card-4:hover .portfolio-item-text.text-4 {
-  color: rgba(244, 244, 253, 1);
-}
 .portfolio-item-card.card-5 {
   background-image: url('../images/portfolio5.jpg');
 }
-.portfolio-item-card.card-5:hover {
-  background-image: none;
-}
 
-.portfolio-item-card.card-5:hover .portfolio-item-text.text-5 {
-  color: rgba(244, 244, 253, 1);
-}
 .portfolio-item-card.card-6 {
   background-image: url('../images/portfolio6.jpg');
 }
-.portfolio-item-card.card-6:hover {
-  background-image: none;
-}
-
-.portfolio-item-card.card-6:hover .portfolio-item-text.text-6 {
-  color: rgba(244, 244, 253, 1);
-}
 
 .portfolio-item-text {
-  color: rgba(244, 244, 253, 0);
-  transition: all 0.1s ease-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #f4f4fd;
+  background-color: #4d5ae5;
+  padding: 40px 32px;
+  transform: translateY(100%);
+  transition: transform .3s ease-in-out;
 }
-/* .portfolio-item-card:hover {
-  background-image: none;
-} */
+.portfolio-item-card:hover .portfolio-item-text{
+  transform: translateY(0);
+}
 .portfolio-item-desc {
   border: 1px solid #e7e9fc;
   border-top: none;
   padding: 32px 16px;
+  box-shadow: 0 0 0 0 rgba(46, 47, 66, 0.08),
+              0 0 0 0 rgba(46, 47, 66, 0.16),
+              0 0 0 0 rgba(46, 47, 66, 0.08);
+  transition: box-shadow .2s ease-in;
+}
+.portfolio-item:hover .portfolio-item-desc {
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 
+              0 1px 1px 0 rgba(46, 47, 66, 0.16), 
+              0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
 .portfolio-item-name {

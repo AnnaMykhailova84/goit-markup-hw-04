@@ -342,9 +342,9 @@ body {
   display: flex;
   position: relative;
   background-size: cover;
-  background-image: url('../images/portfolio1.jpg');
+  /* background-image: url('../images/portfolio1.jpg'); */
   background-repeat: no-repeat;
-  /* background-color: #4d5ae5; */
+  background-color: #f4f4fd;
   width: 100%;
   height: 300px;
   font-family: inherit;
@@ -353,14 +353,14 @@ body {
   overflow: hidden;
 }
 
-.portfolio-item.card-1 {
+.portfolio-item-card.card-1 {
   background-image: url('../images/portfolio1.jpg');
 }
 
 .portfolio-item-card.card-2 {
   background-image: url('../images/portfolio2.jpg');
 }
-}
+
 .portfolio-item-card.card-3 {
   background-image: url('../images/portfolio3.jpg');
 }
@@ -376,7 +376,7 @@ body {
 .portfolio-item-card.card-6 {
   background-image: url('../images/portfolio6.jpg');
 }
-
+.overlay,
 .portfolio-item-text {
   position: absolute;
   top: 0;
@@ -389,6 +389,7 @@ body {
   transform: translateY(100%);
   transition: transform .3s ease-in-out;
 }
+.portfolio-item-card:hover .overlay,
 .portfolio-item-card:hover .portfolio-item-text{
   transform: translateY(0);
 }
